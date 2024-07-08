@@ -15,7 +15,7 @@ class MinHeap:
     def is_empty(self):
         return len(self.queue) == 0
 
-def best_first_search(start, graph, n, hValue):
+def a_star_search(start, graph, n, hValue):
     pq = MinHeap()
     visited = {}
     wValue = {}
@@ -63,4 +63,4 @@ if __name__ == "__main__":
         hValue[a] = int(w);
     
     start = input()  
-    best_first_search(start, graph, n, hValue)
+    a_star_search(start, graph, n, hValue)
