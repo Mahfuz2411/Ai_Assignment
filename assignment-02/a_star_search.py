@@ -28,7 +28,7 @@ def a_star_search(start, graph, n, hValue):
             continue
         visited[node] = True
         print(node, end=" ")
-        if not weight:
+        if not hValue[node]:
             break
         
         for adjNode, adjWidth in graph[node]:
