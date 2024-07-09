@@ -20,56 +20,23 @@ def print_graph(n, g):
             print(d, end=" ")
         print()
 
-# Helper function for DFS
-def dfs_visit(node, visited, g):
-    visited[node] = True
-    print(node, end=" ")
-
-    for neighbor in g[node]:
-        if not visited[neighbor]:
-            dfs_visit(neighbor, visited, g)
-
-# DFS function
-def dfs(start, n, g):
-    visited = [False] * (n+1)
-    print("DFS Traversal:", end=" ")
-    dfs_visit(start, visited, g)
-    print()
-
 # BFS function
 def bfs(start, n, g):
     visited = [False] * (n+1)
-    q = Queue()
+    queue = []
     print("BFS Traversal:", end=" ")
-    q.push(start)
+    queue.append(start)
     visited[start] = True
 
-    while not q.isEmpty():
-        node = q.pop()
+    while queue:
+        node = queue.pop(0)
         print(node, end=" ")
 
         for neighbor in g[node]:
             if not visited[neighbor]:
-                q.push(neighbor)
+                queue.append(neighbor)
                 visited[neighbor] = True
     print()
-
-
-# Custom queue implementation
-class Queue:
-    def __init__(self):
-        self.queue = []
-
-    def push(self, item):
-        self.queue.append(item)
-
-    def pop(self):
-        if len(self.queue) < 1:
-            return None
-        return self.queue.pop(0)
-
-    def isEmpty(self):
-        return len(self.queue) == 0
 
 # Main function
 def main():
@@ -78,10 +45,7 @@ def main():
     
     start_node = int(input("Enter the starting node for DFS and BFS: "))
     
-    dfs(start_node, n, g)
     bfs(start_node, n, g)
-
-    
 
 if __name__ == "__main__":
     main()

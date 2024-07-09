@@ -36,24 +36,6 @@ def dfs(start, n, g):
     dfs_visit(start, visited, g)
     print()
 
-# BFS function
-def bfs(start, n, g):
-    visited = [False] * (n+1)
-    queue = []
-    print("BFS Traversal:", end=" ")
-    queue.append(start)
-    visited[start] = True
-
-    while queue:
-        node = queue.pop(0)
-        print(node, end=" ")
-
-        for neighbor in g[node]:
-            if not visited[neighbor]:
-                queue.append(neighbor)
-                visited[neighbor] = True
-    print()
-
 # Main function
 def main():
     n, g = graph_input()
@@ -62,7 +44,7 @@ def main():
     start_node = int(input("Enter the starting node for DFS and BFS: "))
     
     dfs(start_node, n, g)
-    bfs(start_node, n, g)
+    
 
 if __name__ == "__main__":
     main()
